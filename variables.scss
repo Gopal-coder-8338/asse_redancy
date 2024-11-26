@@ -1,0 +1,328 @@
+// Variables
+$primary-color: #00945f;
+$secondary-color: #888888;
+$background-color: #fffdfd;
+$link-color: rgba(192, 192, 7, 0.89);
+$font-family: Arial;
+
+// Mixins for responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == small {
+    @media (max-width: 400px) {
+      @content;
+    }
+  }
+}
+
+// Global Styles
+body {
+  font-family: $font-family;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  background: $background-color;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Header
+header {
+  margin: 30px;
+
+  img {
+    cursor: pointer;
+
+    @include respond-to(small) {
+      width: 160px;
+    }
+  }
+
+  @include respond-to(small) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+  }
+}
+
+// Main Content
+main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  img {
+    @include respond-to(small) {
+      width: 170%;
+    }
+  }
+}
+
+// Investment Section
+.investment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+  h1 {
+    color: $primary-color;
+    line-height: 31px;
+    font-weight: 500;
+    font-size: 28px;
+  }
+
+  hr {
+    margin-top: -10px;
+    height: 2px;
+    width: 100px;
+    background-color: $primary-color;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 31px;
+    color: $secondary-color;
+
+    @include respond-to(small) {
+      font-size: 16px;
+      margin: 10px;
+    }
+  }
+
+  button {
+    padding: 15px 40px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 0.7px;
+    cursor: pointer;
+    background-color: orange;
+
+    &:hover {
+      background-color: rgba(255, 166, 0, 0.801);
+    }
+  }
+}
+
+// Citizen Section
+.citizen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+
+.citizenHeading {
+    margin-bottom: 40px;
+}
+
+  h1 {
+    color: $primary-color;
+    line-height: 31px;
+    font-weight: 500;
+    font-size: 28px;
+    text-align: center;
+  }
+  .citizen-para .empty-div, .citizen-para2 .empty-div   {
+    width: 1px;
+    background-color: $secondary-color;
+    margin-bottom: -40px;
+  }
+  hr{
+    margin-top: 0px;
+    height: 2px;
+    width: 100px;
+    background-color: $primary-color;
+  }
+  
+
+  .citizen-para, .citizen-para2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    margin-top: 30px;
+    gap: 30px;
+
+     .learnLink {
+        color: $link-color;
+    }
+
+    h3 {
+      color: $primary-color;
+      line-height: 31px;
+    }
+    .smHr{
+        display: none;
+        margin-top: 0px;
+        margin-bottom: -1px;
+        height: 2px;
+        width: 100px;
+        background-color: $primary-color;
+      }
+
+    p {
+      font-size: 18px;
+      line-height: initial;
+      color: $secondary-color;
+    }
+
+    @include respond-to(small) {
+      flex-direction: column;
+      margin: 0;
+
+      h3 {
+        margin: 10px;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      .smHr{
+        display: block;
+        margin-top: -10px;
+        height: .20px;
+        width: 100%;
+        background-color: $secondary-color;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .learnLink {
+    font-size: 15px;
+    cursor: pointer;
+    color: rgba(192, 192, 7, 0.89);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Loans Section
+.loans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  background-color: #c5e0df7a;
+
+  h3 {
+    background-color: $primary-color;
+    width: 98%;
+    margin-top: 0;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+
+    @include respond-to(small) {
+      font-size: 22px;
+      margin: 10px;
+      margin-top: 0px;
+      width: 86%;
+      padding: 25px;
+    }
+  }
+
+  p {
+    margin-top: -20px;
+    padding: 30px 0;
+    inline-size: 90%;
+    line-height: 30px;
+    color: $secondary-color;
+    font-size: 16px;
+  }
+}
+
+// Officer Section
+.officer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  margin: 20px 20px 100px;
+  text-align: center;
+
+  p {
+    color: $secondary-color;
+    margin-top: 0px;
+  }
+
+  @include respond-to(small) {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .officeImg {
+    border: none;
+    border-radius: 50%;
+    margin: 30px;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    margin-bottom: 30px;
+
+    @include respond-to(small) {
+        width: 150px;
+        height: 150px;
+        margin-top: 0px;
+    }
+    img{
+        margin-top: 0px;
+    }
+  }
+
+  .officerName {
+    color: $primary-color;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+    line-height: 40px;
+    font-size: 14px;
+    opacity: 0.839;
+  }
+}
+
+// Footer
+footer {
+  margin: 20px 20px 40px;
+
+  .icon {
+    display: flex;
+    gap: 10px;
+  }
+
+  img {
+    cursor: pointer;
+  }
+
+  p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 30px;
+
+    span {
+      color: #333;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
